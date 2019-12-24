@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+// import WrappedNormalLoginForm from "./components/form/Form";
+import Form from "@bit/dolimovkhumoyun.form_test.form";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const data = [
+  {
+    name: "username",
+    type: "input",
+    placeholder: "Username",
+    message: "Please input your username!",
+    initialValue: "admin"
+  },
+  {
+    name: "password",
+    type: "input",
+    placeholder: "Password",
+    message: "Please input your password!",
+    initialValue: "admin"
+  },
+  {
+    name: "button",
+    type: "button",
+    placeholder: "Submit"
+  }
+];
+
+class App extends Component {
+  state = {};
+
+  handleSubmit = (e, form) => {
+    e.preventDefault();
+    console.log(form.getFieldsValue());
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Form data={data} handleSubmit={this.handleSubmit} />
+        {/* <WrappedNormalLoginForm data={data} handleSubmit={this.handleSubmit} /> */}
+      </div>
+    );
+  }
 }
 
 export default App;
