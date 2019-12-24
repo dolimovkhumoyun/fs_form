@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save fs-form
+npm i @bit/dolimovkhumoyun.form_test.form
 ```
 
 ## Usage
