@@ -13,15 +13,37 @@ npm install --save fs-form
 ## Usage
 
 ```jsx
-import React, { Component } from "react";
+import React from "react";
+import Form from "@bit/dolimovkhumoyun.form_test.form";
 
-import MyComponent from "fs-form";
-
-class Example extends Component {
-  render() {
-    return <ColoredHeadingone text="This is example text" color="red" />;
+const data = [
+  {
+    name: "username",
+    type: "input",
+    placeholder: "Username",
+    message: "Please input your username!",
+    initialValue: "admin"
+  },
+  {
+    name: "password",
+    type: "input",
+    placeholder: "Password",
+    message: "Please input your password!",
+    initialValue: "admin"
+  },
+  {
+    name: "button",
+    type: "button",
+    placeholder: "Submit"
   }
+];
+
+function handleSubmit(e, form) {
+  e.preventDefault();
+  console.log(form.getFieldsValue());
 }
+
+export default <Form data={data} handleSubmit={handleSubmit} />;
 ```
 
 ## License
